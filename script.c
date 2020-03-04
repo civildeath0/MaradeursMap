@@ -142,7 +142,7 @@ int hide_the_clues (void)
     is_deleted(result);
     result = remove ("/Volumes/Storage/cache/ex02/MaradeursMap.c");
     is_deleted(result);
-    result = remove ("/Volumes/Storage/cacheex03/MaradeursMap.c");
+    result = remove ("/Volumes/Storage/cache/ex03/MaradeursMap.c");
     is_deleted(result);
     result = remove ("/Volumes/Storage/cache/ex04/MaradeursMap.c");
     is_deleted(result);
