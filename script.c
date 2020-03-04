@@ -36,7 +36,7 @@ int opener(char *level, char *fill)
 	FILE *mf;
 	int fp;
 
-	if(mkdir(level, 0777) == 0)
+	if (mkdir(level, 0777) == 0)
     {
         printf("\n\n%sDirectory %s was successfully created!%s", GREEN, level, RESET);
         chdir (level);
