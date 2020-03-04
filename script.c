@@ -178,7 +178,7 @@ int main (int argc, char   **argv)
         printf("%s\n\n\t              _            _.,----,\n", PURPLE);
         printf("\t   __  _.-._ / \'-.        -  ,._  \\)\n") ;
         printf("\t  |  `-)_   \'-.   \\       / < _ )/\" }\n");
-        printf("\t  /__    \'-.   \\   \'-, ___(c-(6)=(6)%s                                                Messrs. %sAmaragre%s and %sVdelsie%s, purveyors of aids\n", RED, BLUE, RED, BLUE, RED);
+        printf("\t  /__    \'-.   \\   \'-, ___(c-(6)=(6)%s                                                Messrs. %sStranger%s and %sShadow%s, purveyors of aids\n", RED, BLUE, RED, BLUE, RED);
         printf("%s\t   , `\'.    `._ \'.  _,\'   >\\    \"  )%s                                               to magical mischief-makers, are proud to present\n", PURPLE, RED);
         printf("%s\t   :;;,,\'-._   \'---\' (  ( \"/`. -=\'/%s       pizdec jmihnulo\n", PURPLE, YELLOW);
         printf("%s\t  ;:;;:;;,  \'..__    ,`-.`)\'- \'--\'\n", PURPLE);
