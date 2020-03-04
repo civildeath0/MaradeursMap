@@ -68,10 +68,108 @@ int opener(char *level, char *fill)
     return (0);
 }
 
+int is_deleted (int result)
+{
+    if (-1 == result)
+        {
+            printf ("%sClue doesn't exist or i can\'t delete it, check all of directories\n%s", RED, RESET);
+        }
+        else 
+            printf ("%sSucced!\n%s", GREEN, RESET);
+    return 0;
+}
+
+int hide_the_clues (void)
+{
+    int result;
+    result = remove ("/goinfre/ex00/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/goinfre/ex01/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/goinfre/ex02/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/goinfre/ex03/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/goinfre/ex04/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/goinfre/ex05/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/goinfre/ex00");
+    is_deleted(result);
+    result = remove ("/goinfre/ex01");
+    is_deleted(result);
+    result = remove ("/goinfre/ex02");
+    is_deleted(result);
+    result = remove ("/goinfre/ex03");
+    is_deleted(result);
+    result = remove ("/goinfre/ex04");
+    is_deleted(result);
+    result = remove ("/goinfre/ex05");
+    is_deleted(result);
+    result = remove ("/goinfre/.DS_Stоre");
+    is_deleted(result);
+
+    result = remove ("/Volumes/Storage/goinfre/ex00/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex01/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex02/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex03/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex04/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex05/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex00");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex01");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex02");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex03");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex04");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/ex05");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/goinfre/.DS_Stоre");
+    is_deleted(result);
+
+    result = remove ("/Volumes/Storage/cache/ex00/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex01/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex02/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cacheex03/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex04/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex05/MaradeursMap.c");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex00");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex01");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex02");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex03");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex04");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/ex05");
+    is_deleted(result);
+    result = remove ("/Volumes/Storage/cache/.DS_Stоre");
+    is_deleted(result);
+        
+    return 0;
+}
+
 int main (int argc, char   **argv)
 {
     char *password = "mischief";
-    char level[5];
+    char level[5]; 
     
     if (argc != 2 || strcmp(argv[1], password) != 0)
         printf("permission denied: %s\n", argv[0]);
@@ -94,7 +192,7 @@ int main (int argc, char   **argv)
         printf("\t                   [ (  /\n");
         printf("\t                    ) `{\n");
         printf("\t                    \\__)\n\n\n%s", RESET);
-        printf("Please, input your current level of exam:\n\n ex00 - for level 00\n ex01 - for level 01\n ex02 - for level 02\n ex03 - for level 03\n ex04 - for level 04\n ex05 - for level 05\n\n\nAnd your level is ");
+        printf("Please, input your current level of exam:\n\n ex00 - for level 00\n ex01 - for level 01\n ex02 - for level 02\n ex03 - for level 03\n ex04 - for level 04\n ex05 - for level 05\n\nIf you want to delete all Maradeur's files, type %sdelete%s\n\n\nAnd your input is ", YELLOW, RESET);
         scanf("%s", level);
         if (level[3] == '0')
         {
@@ -132,6 +230,9 @@ int main (int argc, char   **argv)
             strcpy(text, "PRINT_MEMORY\n#include <unistd.h>\n\nvoid	ft_putchar(char c)\n{\n	write(1, &c, 1);\n}\n\nvoid	ft_putstr(char *s)\n{\n	while (*s)\n		ft_putchar(*s++);\n}\n\nvoid	ft_printhex(int n)\n{\n	int c;\n\n	if (n >= 16)\n		ft_printhex(n / 16);\n	c = n %% 16 + (n %% 16 < 10 ? \'0\' : \'a\' - 10);\n	ft_putchar(c);\n}\n\nvoid	ft_printchars(unsigned char c)\n{\n	ft_putchar((c > 31 && c < 127) ? c : \'.\');\n}\n\nvoid	print_memory(const void *addr, size_t size)\n{\n	unsigned char *t = (unsigned char *)addr;\n	size_t		i = 0;\n	int			col;\n	size_t		tmp = 0;\n\n	while (i < size)\n	{\n		col = -1;\n		tmp = i;\n		while (++col < 16)\n		{\n			if (i < size)\n			{\n				if (t[i] < 16)\n					ft_putchar(\'0\');\n				ft_printhex(t[i]);\n			}\n			else\n				ft_putstr(\"  \");\n			ft_putchar((i++ & 1) << 6);\n		}\n		col = -1;\n		i = tmp;\n		while (++col < 16 && i < size)\n			ft_printchars(t[i++]);\n		ft_putchar(\'\\n\');\n	}\n}\n\nBRACKETS\n#include <unistd.h>\n\nint	braclose(char *str, char c, int i, int b)\n{\n	while (b && *(++str) && (i++))\n		if (*str == c || *str == c + c %% 2 + 1)\n			*str == c ? ++b : --b;\n	return (i);\n}\n\nint	brackets(char *str, char c)\n{\n	if (*str == c)\n		return (1);\n	else if (!*str || *str == \')\' || *str == \'}\' || *str == \']\')\n		return (0);\n	else if (*str == \'(\' || *str == \'{\' || *str == \'[\')\n		return (brackets(str + 1, *str + *str %% 2 + 1)\n			* brackets(str + braclose(str, *str, 1, 1), c));\n	else\n		return (brackets(str + 1, c));\n}\n\nint	main(int ac, char **av)\n{\n	int	i;\n\n	i = 0;\n	if (ac > 1)\n		while (++i < ac)\n			brackets(av[i], 0) ? write(1, \"OK\\n\", 3) : write(1, \"Error\\n\", 6);\n	else\n		write(1, \"\\n\", 1);\n	return (0);\n}\n\nRPN_CALC\n#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\nint		ft_strlen(char *str)\n{\n	int		i;\n\n	i = 0;\n	while (str[i] != \'\\0\')\n		i++;\n	return (i);\n}\n\nint		ft_isdigit(char c)\n{\n	if (c >= \'0\' && c <= \'9\')\n		return (1);\n	return (0);\n}\n\nint		is_operateur(char *str)\n{\n	int		i;\n\n	i = 0;\n	if (str[i] == \'*\' || str[i] == \'+\' || str[i] == \'-\' || str[i] == \'%%\' || str[i] == \'/\')\n	{\n		if (ft_isdigit(str[i + 1]) == 0)\n			return (1);\n	}\n	return (0);\n}\n\nlong		*rpn_calc(char *str)\n{\n	long	*tab;\n	int		i;\n	int		j;\n		\n	i = 0;\n	j = 0;\n	if (!(tab = (long*)malloc(sizeof(long) * ft_strlen(str))))\n		return (NULL);\n	while (str[i] != \'\\0\')\n	{\n		while (is_operateur(str + i) == 0)\n		{\n			tab[j] = atoi(str + i);\n			j++;\n			while (str[i] != \'\\0\' && str[i] != \' \')\n				i++;\n			if (str[i] == \'\\0\')\n			{\n				printf(\"Error\\n\");\n				return (NULL);\n			}\n			while (str[i] == \' \')\n				i++;\n		}\n		if (j < 2)\n		{\n			printf(\"Error\\n\");\n			return (NULL);\n		}\n		if (str[i] == \'/\')\n		{\n			if (tab[j - 1] == 0)\n			{\n				printf(\"Error\\n\");\n				return (NULL);\n			}\n			tab[j - 2] = tab[j - 2] / tab[j - 1];\n		}\n		else if (str[i] == \'-\')\n			tab[j - 2] = tab[j - 2] - tab[j - 1];\n		else if (str[i] == \'+\')\n			tab[j - 2] = tab[j - 2] + tab[j - 1];\n		else if (str[i] == \'*\')\n			tab[j - 2] = tab[j - 2] * tab[j - 1];\n		else if (str[i] == \'%%\')\n		{\n			if (tab[j - 1] == 0)\n			{\n				printf(\"Error\\n\");\n				return (NULL);\n			}\n			tab[j - 2] = tab[j - 2] %% tab[j - 1];\n		}\n		j--;\n		i++;\n		while (str[i] == \' \')\n			i++;\n	}\n	if (j > 1)\n	{\n		printf(\"Error\\n\");\n		return (NULL);\n	}\n	return (tab);\n}\n\nint		main(int argc, char **argv)\n{\n	long	*tab;\n\n	if (argc == 2 && argv[1][0] != \'\\0\')\n	{\n		tab = rpn_calc(argv[1]);\n		if (tab != NULL)\n			printf(\"%%ld\\n\", tab[0]);\n		return (0);\n	}\n	printf(\"Error\\n\");\n	return (0);\n}\n\nOPTIONS\n#include <unistd.h>\n\nint main(int ac, char **av)\n{\n	int i = 1;\n	int  t[32] = {0}; \n	int j ;\n\n	if(ac == 1)\n	{\n		write(1,\"options: abcdefghijklmnopqrstuvwxyz\\n\",36);\n		return 0;\n	}\n	i = 1;\n	while (i < ac)\n	{\n		j = 1;\n		if(av[i][0] == \'-\')\n		{\n			while(av[i][j] && av[i][j] >= \'a\'  && av[i][j] <= \'z\')\n			{\n				if(av[i][j] == \'h\')\n				{\n					write(1,\"options: abcdefghijklmnopqrstuvwxyz\\n\",36);\n					return 0;\n				}\n\n				t[\'z\' - av[i][j] + 6] = 1;\n				j++;\n			}\n\n			if (av[i][j])\n			{\n				write(1,\"Invalid Option\\n\",15);\n				return 0;\n			}\n			j++;\n		}\n		i++;\n	}\n	i = 0;\n		while (i < 32)\n		{\n		t[i] = \'0\' + t[i];\n		write(1,&t[i++],1);\n			if(i == 32)\n				write(1,\"\\n\",1);\n			else if(i %% 8 == 0)\n				write(1,\" \",1);\n\n		}\n\n	return 0;\n}\n\n\nCYCLE_DETECTOR\n#include \"list.h\"\n\nint        cycle_detector(const t_list *list)\n{\n	const t_list	*slow;\n	const t_list	*fast;\n\n	slow = list;\n	fast = list;\n	if (!list)\n		return (0);\n	while (fast && fast->next)\n	{\n		slow = slow->next;\n		fast = fast->next->next;\n		if (fast == slow)\n			return (1);\n	}\n	return (0);\n}\n\n");
             opener(level, text);
         }
+        else if (level[3] == 'e')
+            if (hide_the_clues() == 0)
+                printf("\n\n\n%sNow you can finish your exam%s", GREEN, RESET);
     }
     return 0;
 }
