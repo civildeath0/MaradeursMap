@@ -40,37 +40,40 @@ int opener(char *level, char *fill)
     {
         printf("\n\n%sDirectory %s was successfully created!%s", GREEN, level, RESET);
         chdir (level);
+        fp = creat("MaradeursMap.c", 0777);
+
+	    if (fp == -1)
+            printf("%sI can't create file!\n%s", RED, RESET);
+        else
+        {
+	        printf ("%s\nCreating a Maradeur\'s  Map%s", YELLOW, RESET);
+	        mf = fopen ("MaradeursMap.c", "w");
+
+	        if (mf == NULL) 
+                printf ("%s\nWRONG!\n%s", RED, RESET);
+	        else 
+                printf ("%s...\n%s", YELLOW, RESET);
+
+	        fprintf(mf,"%s", fill);
+	        printf("%sSucces! Map is created!\n\n", GREEN);
+
+	        fclose (mf);
+	        printf ("Mischief managed!\n\n%s", RESET);
+        }
     }
     else
     {
         printf("\n\n%sI can't create a directory!\n%s", RED, RESET);
     }
-    
-    fp = creat("MaradeursMap.c",0777);
-	if(fp==-1)
-    printf("%sI can't create file!\n%s", RED, RESET);
-
-	printf ("%s\nCreating a Maradeur\'s  Map%s", YELLOW, RESET);
-	mf=fopen ("MaradeursMap.c", "w");
-
-	if (mf == NULL) printf ("%s\nWRONG!\n%s", RED, RESET);
-	else printf ("%s...\n%s", YELLOW, RESET);
-
-	fprintf(mf,"%s", fill);
-	printf("%sSucces! Map is created!\n\n", GREEN);
-
-	fclose (mf);
-	printf ("Mischief managed!\n\n%s", RESET);
-
-	return (0);
+    return (0);
 }
 
 int main (int argc, char   **argv)
 {
-    char *pass = "mischief";
+    char *password = "mischief";
     char level[5];
     
-    if (argc != 2 || strcmp(argv[1], pass) != 0)
+    if (argc != 2 || strcmp(argv[1], password) != 0)
         printf("permission denied: %s\n", argv[0]);
     else
     {
