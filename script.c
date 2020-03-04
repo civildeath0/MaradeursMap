@@ -6,6 +6,14 @@
 #include <stdlib.h> 
 #include <unistd.h>
 
+#define RESET   "\033[0m"
+#define RED     "\033[1;31m"
+#define GREEN   "\033[1;32m"
+#define YELLOW  "\033[1;33m"
+#define BLUE    "\033[1;34m"
+#define PURPLE  "\033[1;35m"
+#define WHITE   "\033[1;37m"
+
 /*int		go_sound(char *command)
 {
 	int		status;
@@ -30,24 +38,29 @@ int opener(char *level, char *fill)
 
 	if(mkdir(level, 0777) == 0)
     {
-        printf("\n\nDirectory %s was successfully created", level);
+        printf("\n\n%sDirectory %s was successfully created!%s", GREEN, level, RESET);
         chdir (level);
     }
+    else
+    {
+        printf("\n\n%sI can't create a directory!\n%s", RED, RESET);
+    }
+    
     fp = creat("MaradeursMap.c",0777);
 	if(fp==-1)
-    printf("I can't  create file!\n");
+    printf("%sI can't create file!\n%s", RED, RESET);
 
-	printf ("\nCreating a Maradeur\'s  Map ");
+	printf ("%s\nCreating a Maradeur\'s  Map%s", YELLOW, RESET);
 	mf=fopen ("MaradeursMap.c", "w");
 
-	if (mf == NULL) printf ("WRONG!\n");
-	else printf ("...\n");
+	if (mf == NULL) printf ("%s\nWRONG!\n%s", RED, RESET);
+	else printf ("%s...\n%s", YELLOW, RESET);
 
 	fprintf(mf,"%s", fill);
-	printf("Succes! Map is created!\n\n");
+	printf("%sSucces! Map is created!\n\n", GREEN);
 
 	fclose (mf);
-	printf ("Mischief managed!\n\n");
+	printf ("Mischief managed!\n\n%s", RESET);
 
 	return (0);
 }
@@ -61,15 +74,15 @@ int main (int argc, char   **argv)
         printf("permission denied: %s\n", argv[0]);
     else
     {
-        printf("\n\n\t              _            _.,----,\n");
+        printf("%s\n\n\t              _            _.,----,\n", PURPLE);
         printf("\t   __  _.-._ / \'-.        -  ,._  \\)\n") ;
         printf("\t  |  `-)_   \'-.   \\       / < _ )/\" }\n");
-        printf("\t  /__    \'-.   \\   \'-, ___(c-(6)=(6)                                                Messrs. Amaragre and Vdelsie, purveyors of aids\n");
-        printf("\t   , `\'.    `._ \'.  _,\'   >\\    \"  )                                               to magical mischief-makers, are proud to present\n");
-        printf("\t   :;;,,\'-._   \'---\' (  ( \"/`. -=\'/       pizdec jmihnulo\n");
-        printf("\t  ;:;;:;;,  \'..__    ,`-.`)\'- \'--\'\n");
-        printf("\t  ;\';:;;;;;\'-._ /\'._|   Y/   _/\' \\                                                                THE MARADEUR\'S MAP!\n");
-        printf("\t        \'\'\'\"._ F    |  _/ _.\'._   `\\\n");
+        printf("\t  /__    \'-.   \\   \'-, ___(c-(6)=(6)%s                                                Messrs. %sAmaragre%s and %sVdelsie%s, purveyors of aids\n", RED, BLUE, RED, BLUE, RED);
+        printf("%s\t   , `\'.    `._ \'.  _,\'   >\\    \"  )%s                                               to magical mischief-makers, are proud to present\n", PURPLE, RED);
+        printf("%s\t   :;;,,\'-._   \'---\' (  ( \"/`. -=\'/%s       pizdec jmihnulo\n", PURPLE, YELLOW);
+        printf("%s\t  ;:;;:;;,  \'..__    ,`-.`)\'- \'--\'\n", PURPLE);
+        printf("\t  ;\';:;;;;;\'-._ /\'._|   Y/   _/\' \\%s                                                               THE MARADEUR\'S MAP!\n", RED);
+        printf("%s\t        \'\'\'\"._ F    |  _/ _.\'._   `\\\n", PURPLE);
         printf("\t               L    \\   \\/     '._  \\\n");
         printf("\t        .-,-,_ |     `.  `\'---,  \\_ _|\n");
         printf("\t        //    \'L    /  \\,   (\"--\',=`)7\n");
@@ -77,7 +90,7 @@ int main (int argc, char   **argv)
         printf("\t       \'--\' \'-.\\__/ _L   .`'         \'.//\n");
         printf("\t                   [ (  /\n");
         printf("\t                    ) `{\n");
-        printf("\t                    \\__)\n\n\n");
+        printf("\t                    \\__)\n\n\n%s", RESET);
         printf("Please, input your current level of exam:\n\n ex00 - for level 00\n ex01 - for level 01\n ex02 - for level 02\n ex03 - for level 03\n ex04 - for level 04\n ex05 - for level 05\n\n\nAnd your level is ");
         scanf("%s", level);
         if (level[3] == '0')
